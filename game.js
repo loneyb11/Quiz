@@ -7,6 +7,7 @@ let score = 0;
 let questionCounter = 0;
 let availableQuestions = [];
 
+
 let questions = [
     {
         question: "Which built-in method returns the length of the string?",
@@ -91,12 +92,6 @@ let questions = [
     
     ];
 
-
-      
-
-   
- 
-
 //CONSTANTS
 const CORRECT_BONUS = 10;
 const MAX_QUESTIONS = 10;
@@ -109,12 +104,14 @@ startGame = () => {
   console.log(availableQuestions);
   getNewQuestion();
   
+  
 };
 
 
     getNewQuestion = () => {
        if(availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
-           return window.location.assign("/end.html");
+           localStorage.setItem("mostRecentScore", score);
+           return window.location.assign("end.html");
        }
         questionCounter++;
         const questionIndex = Math.floor(Math.random() * availableQuestions.length);
@@ -138,9 +135,20 @@ startGame = () => {
     acceptingAnswers = false;
       const selectedChoice = e.target;
       const selectedAnswer = selectedChoice.dataset["number"];
-      console.log(selectedAnswer);
+     
+      const classToApply =
+      selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
+
+      
+
+    selectedChoice.parentElement.classList.add(classToApply);
+
+
+    setTimeout(() => {
+      selectedChoice.parentElement.classList.remove(classToApply);
       getNewQuestion();
-    });
+    }, 1000);
+  });
 
     });
 startGame();
