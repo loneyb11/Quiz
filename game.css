@@ -7,6 +7,15 @@
   background-color: white;
   
 }
+.timer {
+  display: flex;
+  margin-bottom: 0.5rem;
+  width: 100%;
+  text-align: center;
+  font-size: 2rem;
+  border: 0.1rem solid rgb(86, 165, 235, 0.25);
+  background-color: white;
+}
 
 .choice-container:hover {
   cursor: pointer;
@@ -17,7 +26,7 @@
 
 .choice-prefix {
   padding: 1.5rem 2.5rem;
-  background-color: #56a5eb;
+  background-color: #0458a1;
   color: white;
 }
 
@@ -27,14 +36,14 @@
 }
 
 .correct {
-  background-color: #28a745;
+  background-color: #0df143;
 }
 
 .incorrect {
-  background-color: #dc3545;
+  background-color: #cf1d2f;
 }
 
-/* HUD */
+/* Heads Up Display */
 
 #hud {
   display: flex;
@@ -50,34 +59,8 @@
   text-align: center;
 }
 
-#progressBar {
-  width: 20rem;
-  height: 4rem;
-  border: 0.3rem solid #56a5eb;
-  margin-top: 1.5rem;
-}
 
-#progressBarFull {
-  height: 3.4rem;
-  background-color: #56a5eb;
-  width: 0%;
-}
 
-/* LOADER */
-#loader {
-  border: 1.6rem solid white;
-  border-radius: 50%;
-  border-top: 1.6rem solid #56a5eb;
-  width: 12rem;
-  height: 12rem;
-  animation: spin 2s linear infinite;
-}
 
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
+
+
