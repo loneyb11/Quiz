@@ -1,10 +1,10 @@
 const question = document.getElementById("question");
 const choices = Array.from(document.getElementsByClassName("choice-text"));
+const scoreText = document.getElementById("score");
 
 let currentQuestion = {};
 let acceptingAnswers = true;
 let score = 0;
-let questionCounter = 0;
 let availableQuestions = [];
 
 
@@ -136,10 +136,14 @@ startGame = () => {
       const selectedChoice = e.target;
       const selectedAnswer = selectedChoice.dataset["number"];
      
+      // apply color to correct and incorrect answers
       const classToApply =
       selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
 
-      
+      // apply points to correct answers
+      if (classToApply === "correct") {
+        incrementScore(CORRECT_BONUS);
+      }
 
     selectedChoice.parentElement.classList.add(classToApply);
 
@@ -149,6 +153,10 @@ startGame = () => {
       getNewQuestion();
     }, 1000);
   });
+  incrementScore = num => {
+    score += num;
+    scoreText.innerText = score;
+  }
 
     });
 startGame();
