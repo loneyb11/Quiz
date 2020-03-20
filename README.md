@@ -1,11 +1,7 @@
-# Quiz
+# Web APIs: Code Quiz
 This is homework for Coding Bootcamp
 
 https://loneyb11.github.io/Quiz/
-
-# 04 Web APIs: Code Quiz
-
-
 
 ## User Story
 
